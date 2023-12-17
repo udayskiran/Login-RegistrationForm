@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            min-height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .dashboard-container {
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            width: 80%;
+            max-width: 1200px;
+            margin: 20px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .card {
+            background-color: #eaf0f6;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            box-sizing: border-box;
+        }
+
+        .card h2 {
+            color: #333;
+        }
+
+        .card p {
+            color: #555;
+        }
+
+        .logout-btn {
+            background-color: #e74c3c;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .logout-btn:hover {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+<body>
+
+<div class="dashboard-container">
+    <h1>Welcome, <h2 style="color: chocolate;" th:text="${StudentName}">FirstName</h2></h1>
+
+    <div class="card">
+        <h2>Course Information</h2>
+        <p>You are currently enrolled in [Number of Courses] courses.</p>
+        <!-- Add more course-related information as needed -->
+    </div>
+
+    <div class="card">
+        <h2>Upcoming Events</h2>
+        <p>No upcoming events.</p>
+        <!-- Add upcoming events or deadlines as needed -->
+    </div>
+
+    <div class="card">
+        <h2>Grades</h2>
+        <p>Your current GPA is [GPA].</p>
+        <!-- Display grades or academic performance information -->
+    </div>
+
+    <button class="logout-btn">Logout</button>
+</div>
+
+</body>
+</html>
