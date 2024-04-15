@@ -71,6 +71,8 @@ public class IndexController {
 			model.addAttribute("error", "New passwords not matched.!");
 			return "verifyEmail";
 		}
+		String htmlFile=userService.readHtmlContent("templates/success.html");
+		mailService.sendMail(user.getEmail(),"Password Changed Successfully",htmlFile);
 		return "success";
 	}
 
