@@ -50,7 +50,7 @@ public class IndexController {
 	public String sendEmail(@ModelAttribute LoginDto user, Model model) {
 
 		String message= loginService.forgotPasswordSendMail(user.getEmail());
-		if (user.getEmail() != null && message==null) {
+		if (user.getEmail() != null && message=="invalid") {
 			model.addAttribute("error", "Invalid email id. Please use a different email.");
 			return "EmailOtp";
 		} else {
@@ -61,8 +61,8 @@ public class IndexController {
 	public String verifyEmail(@ModelAttribute LoginDto user, Model model) {
 
 		String message= loginService.forgetPasswordVerifyEmail(user.getEmail(),user.getOtp(),user.getNewPassword(),user.getConfPassword());
-		if (user.getEmail() != null && message==null) {
-			model.addAttribute("error", "Invalid email id. Please use a different email.");
+		if (user.getEmail() != null && message=="invalid") {
+			model.addAttribute("error", "Invalid email id.! Please use a different email.");
 			return "verifyEmail";
 		} else if(message=="incorrect"){
 			model.addAttribute("error", "Invalid otp.! Please enter correct otp");

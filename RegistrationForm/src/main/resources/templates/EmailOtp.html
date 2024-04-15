@@ -15,7 +15,9 @@
             height: 100vh;
             margin: 0;
         }
-
+        h5{
+			text-align: center;
+		}
         .login-form {
             background-color: #fff;
             border-radius: 8px;
@@ -76,11 +78,13 @@
         </div>
         <button type="submit"class="send-otp-btn" onclick="sendOTP()">Send OTP</button>
      </form>
+     <h5 th:if="${error}" style="color: red;" th:text="${error}"></h5>
 </div>
 <script>
     function sendOTP() {
         
         var email = document.getElementById("email").value;
+        
         if (email) {
             alert("Simulating OTP sent to " + email);
         } else {

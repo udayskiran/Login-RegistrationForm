@@ -35,19 +35,19 @@ public class LoginImpl implements LoginService {
 	
 	@Override
 	public String forgotPasswordSendMail(String email) {
-		Optional<Login> userOp = Optional.of(loginRepo.findByEmailIgnoreCase(email));
+		Optional<Login> userOp = Optional.ofNullable(loginRepo.findByEmailIgnoreCase(email));
 		if (userOp.isPresent()) {
 			otpService.generateOtp(email);
 			return "otp";
 		}
-		return null;
+		return "invalid";
 	}
 
 	@Override
 	public String forgetPasswordVerifyEmail(String email, String otp, String newPass, String confPass) {
 		BCryptPasswordEncoder byCrypt = new BCryptPasswordEncoder();
 
-		Optional<Login> userOp = Optional.of(loginRepo.findByEmailIgnoreCase(email));
+		Optional<Login> userOp = Optional.ofNullable(loginRepo.findByEmailIgnoreCase(email));
 		if (userOp.isPresent()) {
 			if (otpService.verifyOtp(email, otp)) {
 				if (newPass.equals(confPass)) {
@@ -62,7 +62,7 @@ public class LoginImpl implements LoginService {
 				return "incorrect";
 			}
 		}
-		return null;
+		return "invalid";
 
 	}
 }
