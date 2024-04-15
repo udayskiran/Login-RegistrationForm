@@ -1,8 +1,10 @@
 package com.example.demo.service;
 
-import com.example.demo.model.User;
+import com.example.demo.entity.User;
 public interface UserService {
 	
 	public User saveData(User user);
-	public boolean isEmailUnique(String Email);
+	public String readHtmlContent(String string);
+	
+	
 }

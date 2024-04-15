@@ -49,10 +49,12 @@
         }
 
         .logout-btn {
+			display: inline-block;
             background-color: #e74c3c;
             color: #fff;
             padding: 10px 15px;
             border: none;
+            text-decoration: none;
             border-radius: 4px;
             cursor: pointer;
             font-size: 16px;
@@ -66,7 +68,7 @@
 <body>
 
 <div class="dashboard-container">
-    <h1>Welcome, <h2 style="color: chocolate;" th:text="${StudentName}">FirstName</h2></h1>
+    <h1>Welcome, <h2 style="color: chocolate;" th:text="${Name}">Name</h2></h1>
 
     <div class="card">
         <h2>Course Information</h2>
@@ -86,7 +88,7 @@
         <!-- Display grades or academic performance information -->
     </div>
 
-    <button class="logout-btn">Logout</button>
+    <a href="http://localhost:8080" class="logout-btn">Logout</a>
 </div>
 
 </body>
